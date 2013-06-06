@@ -18,9 +18,7 @@ int main(void)
 {
 	SparseMatrix<int> aMatrix;
 
-	// from da migthy jannis
-	// this is not possible to do inside the SparseMatrix class; http://stackoverflow.com/q/11642058/1796645 
-	// therefore appropriate of the main function
+	// from somebody I know:
 	std::ifstream infile("Himmel.txt");
 	string line = "Fubar";
 	while (infile.good()) {

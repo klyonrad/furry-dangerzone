@@ -15,17 +15,17 @@ public:
 	SparseMatrix(void);
 	SparseMatrix(const SparseMatrix<a_type> &); // copy constructor
 	~SparseMatrix(void);
-	void setValue(long row, long column, a_type value);
-	void addValue(long row, long column, a_type value);
+	void setValue(const long row, const long column, const a_type value);
+	void addValue(const long row, const long column, const a_type value);
 	void operator+=(const SparseMatrix<a_type> &);
 	// SparseMatrix<a_type> & operator=(const SparseMatrix &righthandside);
-	void outputElementsHigherThan(a_type);
+	void outputElementsHigherThan(const a_type);
 
 private:
 	vector<MatrixElement<a_type> * > values;
 private:
 	MatrixElement<a_type> * hasValue(long, long); // returns 0 ("false") if there is no value
-	vector<MatrixElement<a_type> *> valueIsHigherThan(a_type);
+	vector<MatrixElement<a_type> *> valueIsHigherThan(const a_type);
 };
 
 template<typename a_type> SparseMatrix<a_type>::SparseMatrix(void)
@@ -51,7 +51,7 @@ template<typename a_type> MatrixElement<a_type> * SparseMatrix<a_type>::hasValue
 	return NULL; // aka false when that column and row don't exist
 }
 
-template<typename a_type> void SparseMatrix<a_type>::setValue(long row, long column, a_type value)
+template<typename a_type> void SparseMatrix<a_type>::setValue(const long row, const long column, const a_type value)
 {	
 	MatrixElement<a_type> * temp = hasValue(row, column);
 	if (temp)
@@ -62,7 +62,7 @@ template<typename a_type> void SparseMatrix<a_type>::setValue(long row, long col
 	}
 }
 
-template<typename a_type>void SparseMatrix<a_type>::addValue(long row, long column, a_type value)
+template<typename a_type>void SparseMatrix<a_type>::addValue(const long row, const long column, const a_type value)
 {	
 	MatrixElement<a_type> *temp = hasValue(row, column);
 	if (temp)
@@ -112,16 +112,16 @@ temp->addValue(righthandside.values[i]->row, righthandside.values[i]->column, ri
 return temp;
 } */
 
-template<typename a_type> vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(a_type number){
+template<typename a_type> vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(const a_type number){
 	vector<MatrixElement<a_type> *> toReturn;	
 	for (unsigned int i = 0; i<values.size(); i++){ // search through the values
 		if (values[i]->value > number)
 			toReturn.push_back(values[i]);	// caution when using that vector. references to elements in the "main" Matrix			
 	}
-	return toReturn; // what happens when this is empty?
+	return toReturn;
 }
 
-template<typename a_type> void SparseMatrix<a_type>::outputElementsHigherThan(a_type number){
+template<typename a_type> void SparseMatrix<a_type>::outputElementsHigherThan(const a_type number){
 	vector<MatrixElement<a_type> *> toOutput(valueIsHigherThan(number)); // using copy constructor. pointers reference the same elements as in "main" matrix
 
 	for (unsigned int i = 0; i < toOutput.size(); i++)
