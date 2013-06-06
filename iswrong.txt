@@ -1,0 +1,80 @@
+From johannes.arz@h-da.de Sun May 26 22:25:53 2013
+Date: Sun, 26 May 2013 20:25:31 +0000
+From: "Arz, Johannes, Prof. Dr." <johannes.arz@h-da.de>
+To: "Völker, Jannis Benjamin (Stud. FBI)" <jannis.b.voelker@stud.h-da.de>
+Cc: "Wild, Eric (Stud. FBI)" <eric.wild@stud.h-da.de>
+Subject: AW: Frage zu PG2 Praktikum 4
+
+Hallo zusammen,
+
+Die Datei enthält Repräsentationen einzelner Ländermatrizen, sind also ein
+Modell. Diese sehr großen Matrizen kann man nicht in der üblichen Matrixform
+hinschreiben, noch verarbeiten. Das Modell entsteht aus den Beobachtungen.
+Und sind nun mal, wie sie sind, also auch mit doppelten Beobachtungen.
+In der einfachsten Form sind Additionen der Form
+M[i,j] = M[i,j] + wert 
+zu machen.
+Die Datei ist durch ein Programm entstanden mit Zufallszahlen. Das kann man
+wohl nicht als Falle bezeichnen.
+
+Summa summarum: Gute Arbeit von Ihnen!
+Aber bitte noch nicht weitersagen.
+
+Mit freundlichen Grüßen
+Johannes Arz
+
+____________________________________________
+Prof. Dr. Johannes Arz
+Hochschule Darmstadt
+Fachbereich  Informatik 
+Tel. (+49 / 0) 6151 16-8424
+Fax: (+49 / 0) 6151 16-8935
+WWW: http://www.fbi.h-da.de/~j.arz
+
+ * Neue Email: Johannes.Arz@h-da.de
+____________________________________________
+
+
+-----Ursprüngliche Nachricht-----
+Von: Jannis Völker [mailto:jannis@werderstrasse.de] 
+Gesendet: Freitag, 24. Mai 2013 13:33
+An: Arz, Johannes, Prof. Dr.
+Cc: Wild, Eric (Stud. FBI)
+Betreff: Frage zu PG2 Praktikum 4
+
+Sehr geehrter Herr Prof. Arz,
+
+beim Suchen der Ursache für die Abweichung der Anzahl der Beobachtungen
+zwischen unserer Lösung zur Aufgabe 4 und der Lösung an der Tafel sind wir
+auf ein Problem gestoßen:
+
+In der Aufgabenstellung heißt es: "Finden Sie in den tiefen Kellen von
+Lorsch die Aufzeichnung über die Himmelsbeobachtungen und addieren Sie die
+dort gefundenen _Matrizen_"
+
+Der Definition nach ist in einer Matrix eine Struktur, in der jeweils einem
+Satz indices ein Wert zugeordnet ist.
+In der aktuell auf der Webseite verfügbaren Datei Himmel.txt sind jedoch in
+fünf Ländern für die gleichen Himmelskoordinaten jeweils zwei Angaben
+(zweimal 2 statt einmal 4).
+Damit wäre der Inhalt der Datei also keine _Matrizen_ mehr sondern nur
+_Listen_.
+
+Wenn die Aufgabenstellung das Einlesen von Matrizen fordert, denkt man daran
+natürlich nicht und überschreibt den ersten Wert mit dem zweiten beim
+Einfügen in die Matrix des entsprechenden Landes.
+Beim Einlesen der Angaben eines einzelnen Landes die Werte auf identische
+Koordinaten zu überprüfen würde die Performanz des Programms auch stark
+reduzieren
+
+Handelt es sich bei diesen doppelten Angaben innerhalb eines Landes um einen
+Fehler in der Datei oder um eine absichtliche Falle in der Aufgabenstellung?
+
+Mit freundlichen Grüßen,
+
+Jannis Völker
+Eric Wild
+
+    [ Part 2, Application/PKCS7-SIGNATURE  7.7KB. ]
+    [ Unable to print this part. ]
+
