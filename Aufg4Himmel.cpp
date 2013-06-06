@@ -1,4 +1,4 @@
-// Aufg4Himmel.cpp : Defines the entry point for the console application.
+// Aufg4Himmel.cpp : Usage of SparseMatrix with the sample file himmel.txt
 /* SparseMatrix class with templates
 
 Licensed under: WTFPL lol
