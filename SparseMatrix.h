@@ -1,3 +1,8 @@
+/* SparseMatrix class with templates
+
+Licensed under: WTFPL lol
+( = do what the fuck you want to and lol at my code)
+*/
 #include "stdafx.h"
 #pragma once
 #include "MatrixElement.h"

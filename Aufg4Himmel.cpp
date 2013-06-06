@@ -1,5 +1,10 @@
 // Aufg4Himmel.cpp : Defines the entry point for the console application.
-//
+/* SparseMatrix class with templates
+
+Licensed under: WTFPL lol
+( = do what the fuck you want to and lol at my code)
+*/
+
 
 #include "stdafx.h"
 #include "SparseMatrix.h"
