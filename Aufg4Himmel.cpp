@@ -5,8 +5,6 @@ Licensed under: WTFPL lol
 ( = do what the fuck you want to and lol at my code)
 */
 
-
-#include "stdafx.h"
 #include "SparseMatrix.hpp"
 #include <sstream>
 #include <string>
