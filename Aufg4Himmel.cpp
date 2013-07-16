@@ -7,7 +7,7 @@ Licensed under: WTFPL lol
 
 
 #include "stdafx.h"
-#include "SparseMatrix.h"
+#include "SparseMatrix.hpp"
 #include <sstream>
 #include <string>
 #include <fstream>
