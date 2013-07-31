@@ -9,7 +9,13 @@ Licensed under: WTFPL lol
 
 using std::vector;
 
-template <typename a_type> class SparseMatrix {
+/*
+Datatype in this template class needs the following operators:
+=, +=, >
+and needs easy output via std::cout (if you wanna output it)
+*/
+template <typename a_type> 
+class SparseMatrix {
 public:
 	SparseMatrix(void);
 	SparseMatrix(const SparseMatrix<a_type> &); // copy constructor
@@ -27,21 +33,25 @@ private:
 	vector<MatrixElement<a_type> *> valueIsHigherThan(const a_type);
 };
 
-template<typename a_type> SparseMatrix<a_type>::SparseMatrix(void)
+template<typename a_type> 
+SparseMatrix<a_type>::SparseMatrix(void)
 {
 }
 
-template<typename a_type> SparseMatrix<a_type>::SparseMatrix(const SparseMatrix<a_type> &){
+template<typename a_type> 
+SparseMatrix<a_type>::SparseMatrix(const SparseMatrix<a_type> &){
 
 }
 
-template<typename a_type>SparseMatrix<a_type>::~SparseMatrix(void)
+template<typename a_type>
+SparseMatrix<a_type>::~SparseMatrix(void)
 {
 	for (unsigned int i=0; i<values.size(); i++)
 		delete values[i];
 }
 
-template<typename a_type> MatrixElement<a_type> * SparseMatrix<a_type>::hasValue(long x, long y) {
+template<typename a_type> 
+MatrixElement<a_type> * SparseMatrix<a_type>::hasValue(long x, long y) {
 	for (unsigned int i = 0; i<values.size(); i++){ // search through the values
 		if (values[i]->row == x)
 			if (values[i]->column == y)
@@ -50,7 +60,8 @@ template<typename a_type> MatrixElement<a_type> * SparseMatrix<a_type>::hasValue
 	return NULL; // aka false when that column and row don't exist
 }
 
-template<typename a_type> void SparseMatrix<a_type>::setValue(const long row, const long column, const a_type value)
+template<typename a_type> 
+void SparseMatrix<a_type>::setValue(const long row, const long column, const a_type value)
 {	
 	MatrixElement<a_type> * temp = hasValue(row, column);
 	if (temp)
@@ -61,7 +72,8 @@ template<typename a_type> void SparseMatrix<a_type>::setValue(const long row, co
 	}
 }
 
-template<typename a_type>void SparseMatrix<a_type>::addValue(const long row, const long column, const a_type value)
+template<typename a_type>
+void SparseMatrix<a_type>::addValue(const long row, const long column, const a_type value)
 {	
 	MatrixElement<a_type> *temp = hasValue(row, column);
 	if (temp)
@@ -95,7 +107,8 @@ values.push_back(temp);
 
 //das hier lief (im Debug) performanter:
 
-template<typename a_type>void SparseMatrix<a_type>::operator+=(const SparseMatrix &righthandside){
+template<typename a_type>
+void SparseMatrix<a_type>::operator+=(const SparseMatrix &righthandside){
 	for (unsigned int i = 0; i < righthandside.values.size(); i++) 
 		this->addValue(righthandside.values[i]->row, righthandside.values[i]->column, righthandside.values[i]->value);		
 }
@@ -111,17 +124,19 @@ temp->addValue(righthandside.values[i]->row, righthandside.values[i]->column, ri
 return temp;
 } */
 
-template<typename a_type> vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(const a_type number){
+template<typename a_type> 
+vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(const a_type toCompare){
 	vector<MatrixElement<a_type> *> toReturn;	
 	for (unsigned int i = 0; i<values.size(); i++){ // search through the values
-		if (values[i]->value > number)
+		if (values[i]->value > toCompare)
 			toReturn.push_back(values[i]);	// caution when using that vector. references to elements in the "main" Matrix			
 	}
 	return toReturn;
 }
 
-template<typename a_type> void SparseMatrix<a_type>::outputElementsHigherThan(const a_type number){
-	vector<MatrixElement<a_type> *> toOutput(valueIsHigherThan(number)); // using copy constructor. pointers reference the same elements as in "main" matrix
+template<typename a_type> 
+void SparseMatrix<a_type>::outputElementsHigherThan(const a_type toCompare){
+	vector<MatrixElement<a_type> *> toOutput(valueIsHigherThan(toCompare)); // using copy constructor. pointers reference the same elements as in "main" matrix
 
 	for (unsigned int i = 0; i < toOutput.size(); i++)
 	{
