@@ -24,13 +24,13 @@ public:
 	void addValue(const long row, const long column, const a_type value);
 	void operator+=(const SparseMatrix<a_type> &);
 	// SparseMatrix<a_type> & operator=(const SparseMatrix &righthandside);
-	void outputElementsHigherThan(const a_type);
+	void outputElementsHigherThan(const a_type) const;
 
 private:
 	vector<MatrixElement<a_type> * > values;
 private:
 	MatrixElement<a_type> * hasValue(long, long); // returns 0 ("false") if there is no value
-	vector<MatrixElement<a_type> *> valueIsHigherThan(const a_type);
+	vector<MatrixElement<a_type> *> valueIsHigherThan(const a_type) const;
 };
 
 template<typename a_type> 
@@ -125,7 +125,7 @@ return temp;
 } */
 
 template<typename a_type> 
-vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(const a_type toCompare){
+vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(const a_type toCompare) const{
 	vector<MatrixElement<a_type> *> toReturn;	
 	for (unsigned int i = 0; i<values.size(); i++){ // search through the values
 		if (values[i]->value > toCompare)
@@ -135,7 +135,7 @@ vector<MatrixElement<a_type> *> SparseMatrix<a_type>::valueIsHigherThan(const a_
 }
 
 template<typename a_type> 
-void SparseMatrix<a_type>::outputElementsHigherThan(const a_type toCompare){
+void SparseMatrix<a_type>::outputElementsHigherThan(const a_type toCompare) const{
 	vector<MatrixElement<a_type> *> toOutput(valueIsHigherThan(toCompare)); // using copy constructor. pointers reference the same elements as in "main" matrix
 
 	for (unsigned int i = 0; i < toOutput.size(); i++)

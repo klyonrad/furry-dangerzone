@@ -16,7 +16,7 @@ public:
 	MatrixElement(void);
 	MatrixElement(long x, long y, a_type);
 	~MatrixElement(void);
-	void output(void);
+	void output(void) const;
 
 protected:
 	int row, column;
@@ -38,7 +38,7 @@ template <typename a_type>MatrixElement<a_type>::~MatrixElement(void)
 {
 }
 
-template <typename a_type>void MatrixElement<a_type>::output(void){
+template <typename a_type>void MatrixElement<a_type>::output(void) const{
 	cout.width (8);
 	cout << row << "," << column;
 	cout << " : " << value << endl;
